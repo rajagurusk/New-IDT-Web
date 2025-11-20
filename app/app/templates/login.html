@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SYD-100 Login</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      min-height: 100vh;
+      min-width: 100vw;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: radial-gradient(ellipse at top left, #fcf7df 0%, #fff6e0 100%);
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+    }
+    .split-wrap {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      min-height: 100vh;
+      min-width: 100vw;
+    }
+    .split-img {
+      flex: 1.2;
+      background: url("{{ url_for('static', filename='logindiamond.jpeg') }}") no-repeat center center;
+      background-size: cover;
+      border-radius: 40px 0 0 40px;
+      min-height: 100vh;
+      min-width: 0;
+    }
+    .login-card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.81);
+      border: 2px solid #e4c64b;
+      border-radius: 0 40px 40px 0;
+      min-width: 0;
+      min-height: 100vh;
+      padding: 0 7vw;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .card-logo {
+      margin-top: 28px;
+      width: 98px;
+      height: 98px;
+      object-fit: contain;
+      margin-bottom: 22px;
+      display: block;
+    }
+    .login-title {
+      color: #222;
+      font-weight: 700;
+      font-size: 2.3rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .login-secure {
+      font-size: 1.14rem;
+      color: #444b;
+      text-align: center;
+      margin-bottom: 27px;
+    }
+    .login-card form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    .login-input {
+      width: 100%;
+      min-width: 300px;
+      margin: 0;
+      padding: 14px 18px;
+      border: 2px solid #e4c64b;
+      border-radius: 8px;
+      font-size: 1.08rem;
+      background: #fff;
+      outline: none;
+      box-sizing: border-box;
+    }
+    .login-btn {
+      margin-top: 22px;
+      width: 100%;
+      min-width: 300px;
+      padding: 14px 0;
+      background: #e4c64b;
+      color: #fff;
+      font-size: 1.17rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+      box-shadow: 0 1px 6px #e4c64b24;
+    }
+    .login-btn:hover {
+      background: #d5b12e;
+    }
+    .footer-links {
+      margin-top: 31px;
+      text-align: center;
+    }
+    .footer-links a {
+      text-decoration: none;
+      color: #b99c3d;
+      margin: 0 26px;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: #8d7c2e; }
+    @media (max-width: 850px) {
+      .split-wrap { flex-direction: column; }
+      .split-img, .login-card{ border-radius: 40px 40px 0 0 !important;}
+      .split-img { min-height: 40vh;}
+    }
+  </style>
+</head>
+<body>
+  <div class="split-wrap">
+    <div class="split-img"></div>
+    <div class="login-card">
+      <img class="card-logo" src="{{ url_for('static', filename='idt_logo.png') }}" alt="logo">
+      <div class="login-title">SYD-100 Login</div>
+      <div class="login-secure">Secure Login !<br>Enter your credentials to proceed</div>
+      <form method="post" action="{{ url_for('auth.login') }}">
+        <input name="username" class="login-input" placeholder="User ID" required>
+        <input name="password" class="login-input" type="password" placeholder="Password" required>
+        <button type="submit" class="login-btn">Log In</button>
+      </form>
+      <div class="footer-links">
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

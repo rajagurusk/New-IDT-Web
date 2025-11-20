@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Splash</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        background: #fff; /* Set page background to white */
+      }
+      .center-panel {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background: #fff; /* Set panel background to white */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .center-panel img {
+        width: 100vw;
+        height: 100vh;
+        object-fit: contain;
+        background: #fff; /* Ensure any image background is white */
+      }
+    </style>
+    <script>
+      setTimeout(function () {
+        window.location.href = "{{ url_for('auth.login') }}";
+      }, 3000);
+    </script>
+  </head>
+  <body>
+    <div class="center-panel">
+      <img src="{{ url_for('static', filename='splashpage.jpeg') }}" alt="Splash">
+    </div>
+  </body>
+</html>
