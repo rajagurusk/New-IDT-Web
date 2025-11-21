@@ -2,7 +2,7 @@ import cv2
 from flask import Response
 
 def frames():
-    cap = cv2.VideoCapture(1)  # use 0 for the first USB camera
+    cap = cv2.VideoCapture(0)  # use 0 for the first USB camera
 
     def generate():
         while True:
