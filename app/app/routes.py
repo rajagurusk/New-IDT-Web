@@ -87,7 +87,7 @@ def scan():
         (19, 'capture',   None),
     ]
     print("Relay Command Started")
-    for sec, action, relay in timeline:
+    for sec, action, relay in timeline: 
         target_time = start + sec
         wait = target_time - time.time()
         if wait > 0:
